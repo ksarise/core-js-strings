@@ -183,6 +183,9 @@ function removeLastOccurrences(/* str, value */) {
  */
 function sumOfCodes(str) {
   let sum = 0;
+  if (typeof str !== 'string' || typeof str !== 'undefined') {
+    return 0;
+  }
   for (let i = 0; i < str.length; i += 1) {
     sum += str.charCodeAt(i);
   }
@@ -232,8 +235,10 @@ function endsWith(str, substr) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  return '';
+function formatTime(minutes, seconds) {
+  const min = String(minutes).padStart(2, '0');
+  const sec = String(seconds).padStart(2, '0');
+  return '${min} : ${sec}';
 }
 
 /**
@@ -281,8 +286,8 @@ function orderAlphabetically(/* str */) {
  *   containsSubstring('JavaScript is Fun', 'Python') => false
  *   containsSubstring('12345', '34') => true
  */
-function containsSubstring(/* str, substring */) {
-  throw new Error('Not implemented');
+function containsSubstring(str, substring) {
+  return str.includes(substring);
 }
 
 /**
