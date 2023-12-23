@@ -86,8 +86,7 @@ function getFirstChar(value) {
  *   removeLeadingAndTrailingWhitespaces('\t\t\tHello, World! ') => 'Hello, World!'
  */
 function removeLeadingAndTrailingWhitespaces(value) {
-  const trail = value.replace(/^\s+|\s+$/gm, '');
-  return trail;
+  return value.trim();
 }
 
 /**
@@ -376,12 +375,10 @@ function findLongestWord(sentence) {
  */
 function reverseWords(str) {
   const words = str.split(' ');
-  console.log(words);
   let wordsRev = '';
   for (let i = 0; i < words.length; i += 1) {
     const word = reverseString(words[i]);
     wordsRev = `${wordsRev} ${word}`;
-    console.log(wordsRev);
   }
   return wordsRev.trim();
 }
